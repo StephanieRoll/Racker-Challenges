@@ -1,7 +1,7 @@
 import pyrax
 import time
 import os
-pyrax.set_credential_file(os.path.expanduser("~/.rackspace_cloud_credentials")
+pyrax.set_credential_file(os.path.expanduser("~/.rackspace_cloud_credentials"))
 cs = pyrax.cloudservers
 flvs = cs.flavors.list()
 
