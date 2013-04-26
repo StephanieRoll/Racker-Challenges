@@ -4,7 +4,7 @@ import sys
 pyrax.set_credential_file(os.path.expanduser("~/.rackspace_cloud_credentials"))
 
 if len(sys.argv) !=3:
-	print "Wrong number of arguments, please provide a total of three."
+	print "Wrong number of arguments, please provide a total of three arguments."
 	
 fqdn = sys.argv[1]
 ip = sys.argv[2]
