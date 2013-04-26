@@ -4,7 +4,7 @@ import os
 pyrax.set_credential_file(os.path.expanduser("~/.rackspace_cloud_credentials"))
 cs = pyrax.cloudservers
 id_of_server = cs.servers.list()[0].id 
-image_id = cs.servers.create_image(id_of_server,"Image3")
+image_id = cs.servers.create_image(id_of_server,"Challenge2Image")
 print "beep boop boop beep...Creating Image" 
 	
 image_of_server = cs.images.get(image_id)
@@ -15,7 +15,7 @@ while image_of_server.status != "ACTIVE":
 
 print "beep boop boop beep...Image Complete"
 
-new_server = cs.servers.create("Tanks_Box2", image_of_server, "2")
+new_server = cs.servers.create("Challenge2Server", image_of_server, "2")
 
 print "beep boop boop beep...Server Building\n", "Admin Password", new_server.adminPass
 
