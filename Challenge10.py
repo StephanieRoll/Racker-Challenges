@@ -38,10 +38,11 @@ print "Creating LB"
 lb = clb.create("Challenge7_LB", port=80, protocol="HTTP",
         nodes=[node1, node2], virtual_ips=[vip])
 
-ip = clb.VirtualIp
+ 
+
 
 new_domain = dns.create(name="www.terriers.com", emailAddress="sample@example.com")
-new_domain.add_records({"type": "A", "name": "www.terriers.com", "data": ip, "ttl": "300"})
+new_domain.add_records({"type": "A", "name": "www.terriers.com", "data": lb.virtual_ips[0].address, "ttl": "300"})
 
 
 lb_monitor = clb.list()[0]
