@@ -1,10 +1,9 @@
 import pyrax
 import time
 import os
-pyrax.set_credential_file(os.path.expanduser("~/projects/pyrax.cfg"))
-id_of_server = "17c03a4e-8437-40c0-8e85-24da97be4f69"
-
+pyrax.set_credential_file(os.path.expanduser("~/.rackspace_cloud_credentials"))
 cs = pyrax.cloudservers
+id_of_server = cs.servers.list()[0].id 
 image_id = cs.servers.create_image(id_of_server,"Image3")
 print "beep boop boop beep...Creating Image" 
 	
